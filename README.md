@@ -9,13 +9,13 @@ Choose [legacy code](https://github.com/emilybache/GildedRose-Refactoring-Kata) 
 ## Planning notes
 
 Working with legacy code will require a different approach to starting from scratch.   Broadly-speaking, my plan is to:
-1. Review the legacy code & spec to understand the rules for how the items change in quality.
+1. Review the legacy code & spec to understand the rules for how the items change in quality. ✅
 2. Create a flow chart, describing the logic for this.
-3. Create a table describing how each item changes in quality
-4. Use `texttest_fixture.js` and the console to check that understanding of legacy code is correct.  
+3. Create a table describing how each item changes in quality ✅
+4. Use `texttest_fixture.js` and the console to check that understanding of legacy code is correct.  ✅
   a. amended some of the code to make testing work in the console - removing reference to 'export' in `gilded_rose.js`, and reference to 'process' in `texttest_fixture.js`.  This allowed me to confirm that the legacy code was behaving as I had expected.  I then removed `texttest_fixture.js` from `SpecRunner.html`, as it will not now be needed for testing.
-5. Add some tests `gilded_rose_spec.js` to check that the legacy code is performing correctly.
-6. Make any necessary changes to existing code so that the tests pass.
+5. Add some tests `gilded_rose_spec.js` to check that the legacy code is performing correctly. ✅
+6. Make any necessary changes to existing code so that the tests pass. ✅ (n/a)
 7. Refactor the code where possible.
 8. Use TDD to add the new item
 9. Create documentation for the code, so that other newcomers are able to understand how it works, what changes have been made, and why.
