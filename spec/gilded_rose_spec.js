@@ -183,4 +183,25 @@ describe("Gilded Rose", function() {
       expect(items[2].quality).toEqual(0);
     });
   });
+
+  describe("Conjured items", function() {
+    var items;
+    var gildedRose;
+
+    beforeEach(function() {
+      items = [
+        new Item("Conjured Mana Cake", 3, 6),
+        new Item("Conjured Mana Pemmican", 9, 18)
+      ];
+      gildedRose = new Shop(items);
+    });
+
+    it("should decrease the quality by 2 per day", function() {
+      for (let day = 0; day < 1; day++) {
+        gildedRose.updateQuality();
+      }
+      expect(items[0].quality).toEqual(4);
+      expect(items[1].quality).toEqual(16);
+    });
+  });
 });

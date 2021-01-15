@@ -17,8 +17,12 @@ class Shop {
       if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
         if (this.items[i].name != 'Aged Brie' && this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
           if (this.items[i].quality > 0) {
-            //reduces quality of normal goods by 1 every day
-            this.items[i].quality = this.items[i].quality - 1;
+            if (this.items[i].name.startsWith('Conjured')) {
+              //reduces quality of normal goods by 1 every day
+              this.items[i].quality = this.items[i].quality - 2;
+            } else {
+              this.items[i].quality = this.items[i].quality - 1;
+            }
           }
         } else {
           if (this.items[i].quality < 50) {
@@ -40,8 +44,7 @@ class Shop {
             }
           }
         }
-        // reduces SellIn by 1 for all products except Sulfaras (why isn't this last?)
-        // should start with if != Sulfuras right at the beginning of updateQuality
+        // reduces SellIn by 1 for all products except Sulfaras
         this.items[i].sellIn = this.items[i].sellIn - 1;
 
         // reduces quality of normal goods by an additional 1 if sellIn < 0
@@ -52,8 +55,7 @@ class Shop {
                 this.items[i].quality = this.items[i].quality - 1;
               }
             } else {
-              // is supposed to reduce quality to zero for backstage passes but does
-              // all types apart from Aged Brie at the moment
+              // reduces quality to zero for backstage passes
               this.items[i].quality = this.items[i].quality - this.items[i].quality;
             }
           } else {
