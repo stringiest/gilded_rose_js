@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 var {Shop, Item} = require('../src/gilded_rose.js');
 describe("Gilded Rose", function() {
 

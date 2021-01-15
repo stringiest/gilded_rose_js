@@ -1,4 +1,6 @@
-const { Shop, Item } = require("../src/gilded_rose");
+/*jshint esversion: 6 */
+
+// const { Shop, Item } = require("../src/gilded_rose");
 
 const items = [
   new Item("+5 Dexterity Vest", 10, 20),
@@ -11,10 +13,12 @@ const items = [
   new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
 
   // This Conjured item does not work properly yet
-  new Item("Conjured Mana Cake", 3, 6),
+  // new Item("Conjured Mana Cake", 3, 6),
 ];
-
-const days = Number(process.argv[2]) || 2;
+// Original const days definition
+// const days = Number(process.argv[2]) || 2;
+// Revised definition, to work in browser
+const days = 12;
 const gildedRose = new Shop(items);
 
 console.log("OMGHAI!");
