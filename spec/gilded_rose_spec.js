@@ -121,4 +121,25 @@ describe("Gilded Rose", function() {
       expect(items[1].quality).toEqual(50);
     });
   });
+
+  describe("Backstage passes", function() {
+    var items;
+    var gildedRose;
+
+    beforeEach(function() {
+      items = [
+        new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+        new Item("Backstage passes to a TAFKAL80ETC concert", 10, 48),
+        new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49)
+      ];
+      gildedRose = new Shop(items);
+    });
+
+    it("should increase the quality by 1 per day where sellIn > 10", function() {
+      for (let day = 0; day < 1; day++) {
+        gildedRose.updateQuality();
+      }
+      expect(items[0].quality).toEqual(21);
+    });
+  });
 });
