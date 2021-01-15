@@ -130,7 +130,7 @@ describe("Gilded Rose", function() {
       items = [
         new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
         new Item("Backstage passes to a TAFKAL80ETC concert", 10, 46),
-        new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49)
+        new Item("Backstage passes to a TAFKAL80ETC concert", 5, 46)
       ];
       gildedRose = new Shop(items);
     });
@@ -147,6 +147,13 @@ describe("Gilded Rose", function() {
         gildedRose.updateQuality();
       }
       expect(items[1].quality).toEqual(48);
+    });
+
+    it("should increase the quality by 3 per day where sellIn <= 5)", function() {
+      for (let day = 0; day < 1; day++) {
+        gildedRose.updateQuality();
+      }
+      expect(items[2].quality).toEqual(49);
     });
   });
 });
