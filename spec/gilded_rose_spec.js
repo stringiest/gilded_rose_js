@@ -190,7 +190,7 @@ describe("Gilded Rose", function() {
 
     beforeEach(function() {
       items = [
-        new Item("Conjured Mana Cake", 3, 6),
+        new Item("Conjured Mana Cake", 3, 12),
         new Item("Conjured Mana Pemmican", 9, 18)
       ];
       gildedRose = new Shop(items);
@@ -200,7 +200,7 @@ describe("Gilded Rose", function() {
       for (let day = 0; day < 1; day++) {
         gildedRose.updateQuality();
       }
-      expect(items[0].quality).toEqual(4);
+      expect(items[0].quality).toEqual(10);
       expect(items[1].quality).toEqual(16);
     });
 
@@ -210,6 +210,14 @@ describe("Gilded Rose", function() {
       }
       expect(items[0].sellIn).toEqual(2);
       expect(items[1].sellIn).toEqual(8);
+    });
+
+    it("should decrease the quality by 4 per day on sellIn <= 0", function() {
+      for (let day = 0; day < 4; day++) {
+        gildedRose.updateQuality();
+      }
+      expect(items[0].quality).toEqual(2);
+      expect(items[1].quality).toEqual(10);
     });
   });
 });
