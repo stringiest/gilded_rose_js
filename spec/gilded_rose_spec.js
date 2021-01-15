@@ -5,11 +5,16 @@
 describe("Gilded Rose", function() {
 
   describe("Standard items", function() {
-    const items = [
-      new Item("+5 Dexterity Vest", 10, 20),
-      new Item("Elixir of the Mongoose", 5, 7)
-    ];
-    const gildedRose = new Shop(items);
+    var items;
+    var gildedRose;
+
+    beforeEach(function() {
+      items = [
+        new Item("+5 Dexterity Vest", 10, 20),
+        new Item("Elixir of the Mongoose", 5, 7)
+      ];
+      gildedRose = new Shop(items);
+    });
 
     it("should decrease the quality by 1 per day", function() {
       for (let day = 0; day < 3; day++) {
@@ -20,7 +25,7 @@ describe("Gilded Rose", function() {
     });
 
     it("should decrease the sellIn by 1 per day", function() {
-      for (let day = 0; day < 2; day++) {
+      for (let day = 0; day < 5; day++) {
         gildedRose.updateQuality();
       }
       expect(items[0].sellIn).toEqual(5);
@@ -28,7 +33,7 @@ describe("Gilded Rose", function() {
     });
 
     it("should decrease the quality by 2 per day on sellIn <= 0", function() {
-      for (let day = 0; day < 1; day++) {
+      for (let day = 0; day < 6; day++) {
         gildedRose.updateQuality();
       }
       expect(items[0].quality).toEqual(14);
@@ -36,7 +41,7 @@ describe("Gilded Rose", function() {
     });
 
     it("should not decrease quality below 0", function() {
-      for (let day = 0; day < 1; day++) {
+      for (let day = 0; day < 7; day++) {
         gildedRose.updateQuality();
       }
       expect(items[0].quality).toEqual(13);
@@ -45,11 +50,16 @@ describe("Gilded Rose", function() {
   });
 
   describe("Sulfuras", function() {
-    const items = [
-      new Item("Sulfuras, Hand of Ragnaros", 0, 80),
-      new Item("Sulfuras, Hand of Ragnaros", -1, 80)
-    ];
-    const gildedRose = new Shop(items);
+    var items;
+    var gildedRose;
+
+    beforeEach(function() {
+      items = [
+        new Item("Sulfuras, Hand of Ragnaros", 0, 80),
+        new Item("Sulfuras, Hand of Ragnaros", -1, 80)
+      ];
+      gildedRose = new Shop(items);
+    });
 
     it("should not decrease quality over time", function() {
       for (let day = 0; day < 3; day++) {
@@ -69,18 +79,38 @@ describe("Gilded Rose", function() {
   });
 
   describe("Aged Brie", function() {
-    const items = [
-      new Item("Aged Brie", 2, 0),
-      new Item("Aged Brie", 4, 42)
-    ];
-    const gildedRose = new Shop(items);
+    var items;
+    var gildedRose;
 
-    it("should increase the quality by 1 per day", function() {
+    beforeEach(function() {
+      items = [
+        new Item("Aged Brie", 4, 0),
+        new Item("Aged Brie", 6, 42)
+      ];
+      gildedRose = new Shop(items);
+    });
+    console.log('1');
+    it("should decrease the sellIn by 1 per day", function() {
+      console.log('2');
       for (let day = 0; day < 2; day++) {
+        console.log('3');
         gildedRose.updateQuality();
       }
+      console.log('4');
+      expect(items[0].sellIn).toEqual(2);
+      expect(items[1].sellIn).toEqual(4);
+    });
+
+    it("should increase the quality by 1 per day", function() {
+      console.log('5');
+      for (let day = 0; day < 2; day++) {
+        console.log('6');
+        gildedRose.updateQuality();
+      }
+      console.log('7');
       expect(items[0].quality).toEqual(2);
       expect(items[1].quality).toEqual(44);
     });
+
   });
 });
