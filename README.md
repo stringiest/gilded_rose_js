@@ -16,8 +16,8 @@ Working with legacy code will require a different approach to starting from scra
   a. amended some of the code to make testing work in the console - removing reference to 'export' in `gilded_rose.js`, and reference to 'process' in `texttest_fixture.js`.  This allowed me to confirm that the legacy code was behaving as I had expected.  I then removed `texttest_fixture.js` from `SpecRunner.html`, as it will not now be needed for testing.
 5. Add some tests `gilded_rose_spec.js` to check that the legacy code is performing correctly. ✅
 6. Make any necessary changes to existing code so that the tests pass. ✅ (n/a)
-7. Refactor the code where possible.
-8. Use TDD to add the new item
+7. Refactor the code where possible. ✅
+8. Use TDD to add the new item ✅
 9. Create documentation for the code, so that other newcomers are able to understand how it works, what changes have been made, and why.
 
 ### Flow Chart
