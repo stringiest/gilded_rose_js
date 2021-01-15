@@ -164,5 +164,14 @@ describe("Gilded Rose", function() {
       expect(items[1].sellIn).toEqual(9);
       expect(items[2].sellIn).toEqual(4);
     });
+
+    it("should increase not increase quality to more than 50", function() {
+      for (let day = 0; day < 3; day++) {
+        gildedRose.updateQuality();
+      }
+      expect(items[0].quality).toEqual(23);
+      expect(items[1].quality).toEqual(50);
+      expect(items[2].quality).toEqual(50);
+    });
   });
 });
