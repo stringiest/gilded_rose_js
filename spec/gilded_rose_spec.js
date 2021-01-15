@@ -27,5 +27,13 @@ describe("Gilded Rose", function() {
       expect(items[1].sellIn).toEqual(0);
     });
 
+    it("should decrease the quality by 2 per day on sellIn <= 0", function() {
+      for (let day = 0; day < 1; day++) {
+        gildedRose.updateQuality();
+      }
+      expect(items[0].quality).toEqual(14);
+      expect(items[1].quality).toEqual(0);
+    });
+
   });
 });
