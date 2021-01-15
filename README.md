@@ -32,7 +32,7 @@ Working with legacy code will require a different approach to starting from scra
 |   |   |   | +3/day, sellIn <= 5 |   |   |
 |   |   |   |  Drop to 0, sellIn < 0 |   |   |
 | Quality minimum | 0 | 0 | 0 | 0 | 0 |
-| Quality maximum | 50  | 50  | 50  | 50  | 50  |
+| Quality maximum | 50  | n/a  | 50  | 50  | 50  |
 | SellIn changes| -1/day | n/a  | -1/day  | -1/day  | -1/day  |
 
 ### Inferred from legacy code rather than from spec
