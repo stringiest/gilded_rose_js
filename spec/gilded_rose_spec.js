@@ -35,5 +35,12 @@ describe("Gilded Rose", function() {
       expect(items[1].quality).toEqual(0);
     });
 
+    it("should not decrease quality below 0", function() {
+      for (let day = 0; day < 1; day++) {
+        gildedRose.updateQuality();
+      }
+      expect(items[0].quality).toEqual(13);
+      expect(items[1].quality).toEqual(0);
+    });
   });
 });

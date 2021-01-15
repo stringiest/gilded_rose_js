@@ -25,7 +25,7 @@ Working with legacy code will require a different approach to starting from scra
 
 ### Table of goods & properties
 
-| Category  | Aged Brie | Sulfuras  | Backstage passes  | Conjured  | Normal  |
+| Category  | Aged Brie | Sulfuras  | Backstage passes  | Conjured  | Standard  |
 | --- | --- | --- | --- | --- | --- |
 | Quality change  | +1/day | n/a | +1/day | -2/day default | -1/day default |
 |   |  +2/day, sellIn < 0 | n/a  | +2/day, sellIn <= 10 | -4/day, sellIn < 0  | -2/day, sellIn < 0  |
