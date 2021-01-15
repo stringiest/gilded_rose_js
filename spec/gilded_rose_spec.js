@@ -89,28 +89,28 @@ describe("Gilded Rose", function() {
       ];
       gildedRose = new Shop(items);
     });
-    console.log('1');
     it("should decrease the sellIn by 1 per day", function() {
-      console.log('2');
       for (let day = 0; day < 2; day++) {
-        console.log('3');
         gildedRose.updateQuality();
       }
-      console.log('4');
       expect(items[0].sellIn).toEqual(2);
       expect(items[1].sellIn).toEqual(4);
     });
 
     it("should increase the quality by 1 per day", function() {
-      console.log('5');
       for (let day = 0; day < 2; day++) {
-        console.log('6');
         gildedRose.updateQuality();
       }
-      console.log('7');
       expect(items[0].quality).toEqual(2);
       expect(items[1].quality).toEqual(44);
     });
 
+    it("should increase the quality by 2 per day where sellIn <= 0", function() {
+      for (let day = 0; day < 5; day++) {
+        gildedRose.updateQuality();
+      }
+      expect(items[0].quality).toEqual(6);
+      expect(items[1].quality).toEqual(47);
+    });
   });
 });
